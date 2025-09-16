@@ -1,4 +1,6 @@
 
+using CareerMentoringNetwork.API.Models;
+
 namespace CareerMentoringNetwork.API
 {
     public class Program
@@ -6,6 +8,17 @@ namespace CareerMentoringNetwork.API
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            Student student = new Student();
+
+            
+            student.FirstName = "John"; //using the getter property
+            student.LastName = "Doe";
+
+            Console.WriteLine(student.Fullname); //using the getter property
+
+
+         //  Student.CreateStudent()
 
             // Add services to the container.
 
