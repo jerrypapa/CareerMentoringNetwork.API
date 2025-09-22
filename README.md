@@ -134,6 +134,8 @@ LinkedInProfile varchar(500)
 
 
 
+https://www.w3schools.com/sql/
+
 
 
 
