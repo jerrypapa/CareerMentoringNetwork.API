@@ -1,7 +1,11 @@
-﻿namespace CareerMentoringNetwork.API.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CareerMentoringNetwork.API.Models;
 
 public class Student
 {
+    [Key]
+    public int Id { get; set; }
     // prop ....your tab key twice
     public string FirstName { get; set; } //properties .....
     public string LastName { get; set; }
