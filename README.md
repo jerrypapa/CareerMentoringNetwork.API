@@ -143,6 +143,104 @@ https://www.w3schools.com/sql/
 
 
 
+---------------------------------------LESSON 2025-09-24-----------------------------
+
+
+
+
+1. Mentors
+2. Mentees
+3. Sessions
+
+
+
+create table Mentors (
+MentorId int PRIMARY KEY,
+FirstName varchar (500),--varchar translates to a string in .net/java/python etc
+LastName varchar (500), -- comments
+FullName varchar (500),
+Major varchar (500),
+YearsOfExperience int
+)
+
+
+create table Mentees (
+MenteeId int PRIMARY KEY,
+FirstName varchar (500),--string
+LastName varchar (500),
+FullName varchar (500),
+CareerGoal varchar (5000)
+)
+
+
+create table Sessions 
+(
+  SessionId int PRIMARY KEY, 
+  MentorId int,
+  MenteeId int,
+  SessionDate DATE,
+  Topic varchar (500)
+  
+  FOREIGN KEY (MentorId) REFERENCES Mentors(MentorId),
+  FOREIGN KEY (MenteeId) REFERENCES Mentees(MenteeId)
+)
+
+1. Direct relationships : A mentor can guide many mentees
+                          A menee can be guided by many mentors (many2many)
+
+In this case each row in our session table will be representing on mentorship interaction/session
+
+
+In essence we will now have 
+
+Mentors <-----> Sessions (One to many) : One mentor can have many sessions
+Mentees <-----> Sessions (One to many) :One mentee can have many sessions
+
+
+
+
+
+INSERTING DATA
+
+
+INSERT INTO tablename VALUES();
+
+
+INSERT INTO Mentors VALUES (1,'Jerry','Papa','Jerry Papa','Architecture',8)
+INSERT INTO Mentors VALUES (2,'Stanley','Oduor','Stanley Oduor','Engineering',2)
+
+
+INSERT INTO Mentees VALUES (1,'Mercy','Atieno','Mercy Atieno','CyberSec')
+INSERT INTO Mentees VALUES (2,'Lloyd','Katila','Lloyd Katila','MobileDev')
+INSERT INTO Mentees VALUES (3,'James','Ochieng','James Ochieng','Engineering')
+INSERT INTO Mentees VALUES (4,'Kester','Okoth','Kester Okoth','WebDev')
+
+
+INSERT INTO Sessions VALUES (1,1,1,'2025-09-24','dotnet series')
+INSERT INTO Sessions VALUES (2,2,2,'2025-09-24','mobile dev series')
+INSERT INTO Sessions VALUES (3,1,4,'2025-09-24','web series')
+INSERT INTO Sessions VALUES (4,2,3,'2025-09-24','engineering series')
+
+
+
+-------------------------READ DATA------------------
+
+select * from tablename ///this returns all the data in a tablename
+
+
+select * from Mentors
+select * from Mentees
+select * from Sessions
+
+
+
+
+
+
+
+
+
+
 
 
 
