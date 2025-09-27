@@ -306,6 +306,18 @@ Scenario -->create all possible mentor - mentee pairs
 
 SELECT * FROM MENTORS m CROSS JOIN MENTEES t
 
+
+--Unions will allow yopu to execute 2 separate querries and merge the results
+
+-- Use Union All when duplicates dont matter as UNions by default cleans duplicates
+
+SELECT FullName, 'Mentor'  AS role FROM MENTORS
+
+UNION
+
+SELECT FullName, 'Mentee'  AS role FROM MENTEES
+
+
 ..............................................................................
 
 
