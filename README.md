@@ -235,6 +235,83 @@ select * from Sessions
 
 
 
+......................LESSON 20250927 ........................................
+
+JOINS
+VIEWS
+SPs (Stored Procedure)
+
+...................................JOINS............................................
+
+Helps us get aggregated data across tables with relationships;
+
+INNER JOINS  
+LEFT JOIN
+RIGHT JOIN
+FULL OUTER JOIN
+CROSS JOIN
+......................................................................................
+
+INNER JOINS  -- returns rows where there is a match in both tables
+
+select * from Sessions s
+
+INNER JOIN Mentors m ON s.Mentor_id = m.mentor_id
+INNER JOIN Mentees t ON s.Mentee_Id = t.Mentee_Id 
+
+
+
+REFINEMENT...
+
+
+select s.SessionId,s.SessionDate,s.Topic,m.FirstName AS MENTORNAME,t.FirstName AS MENTEENAME from Sessions s
+
+INNER JOIN Mentors m ON s.MentorId = m.MentorId
+INNER JOIN Mentees t ON s.MenteeId = t.MenteeId 
+
+......................................................................................
+LEFT JOIN  -- return all rows from the left table even if there is no match in the right table
+
+Scenario --> List all mentors and any sessions they have had
+
+SELECT * FROM MENTORS m
+LEFT JOIN Sessions s ON m.MentorId = s.MentorId
+
+
+
+SELECT m.FullName,s.SessionDate,s.Topic FROM MENTORS m
+LEFT JOIN Sessions s ON m.MentorId = s.MentorId
+............................................................................................
+
+RIGHT JOIN -- returns all rows from the right table
+
+Scenario --> Show all mentees and any sessions they have attended. Shows all mentees even if they haven't had a session.
+
+SELECT * FROM Sessions s RIGHT JOIN Mentees t ON s.MenteeId = t.MenteeId
+
+..............................................................
+
+FULL OUTER JOIN -- returns everything from both tables . Rows with no matches will always return a null
+
+Scenario --> All mentors and all sessions whether or not they match
+
+SELECT * FROM MENTORS m
+FULL OUTER JOIN Sessions s ON  m.MentorId = s.MentorId
+
+
+.............................................................
+CROSS JOIN --  each row from one table is paired  with every row from the other tables
+
+Scenario -->create all possible mentor - mentee pairs
+
+SELECT * FROM MENTORS m CROSS JOIN MENTEES t
+
+..............................................................................
+
+
+
+
+
 
 
 
