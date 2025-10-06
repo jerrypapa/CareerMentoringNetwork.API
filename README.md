@@ -318,7 +318,51 @@ UNION
 SELECT FullName, 'Mentee'  AS role FROM MENTEES
 
 
-..............................................................................
+..........................................LESSON 20251006........................................
+
+
+VIEWS
+STORED PROCEDURES (sp's)
+
+
+Views are like saved queries. They don't store new data but provides more of a shortcut to queries you run often;
+
+
+CREATE VIEW SessionStats AS
+select s.SessionId,s.SessionDate,s.Topic,m.FirstName,t.FullName from Sessions s
+JOIN Mentors m on s.MentorId = m.MentorId
+JOIN Mentees t on s.MenteeId = t.MenteeId;
+
+
+STORED Procedures -- > Think of these as functions in your database
+Store statements that you can execute with one command often with parameters
+
+CREATE PROCEDURE GetSessionByMentor
+ @mentorName VARCHAR(200)
+AS
+BEGIN
+
+select s.SessionId,s.SessionDate,s.Topic,m.FirstName,t.FullName from Sessions s
+JOIN Mentors m on s.MentorId = m.MentorId
+JOIN Mentees t on s.MenteeId = t.MenteeId 
+WHERE m.FirstName = @mentorName;
+
+END
+
+
+calling the sp:
+
+EXEC GetSessionByMentor 'Jerry';
+
+
+
+
+
+
+
+
+
+
 
 
 
