@@ -357,6 +357,57 @@ EXEC GetSessionByMentor 'Jerry';
 
 
 
+---------------------------------------------2025-10-08---------------------------------------------
+
+
+DDD   --- > Domain Driven Design 
+
+Domain experts  --> 
+Bounded Context --- > Pharmacy boundary .....Lab boundary ....Consultation/Treatment
+Boundaries --> Microservice boundaries
+
+
+
+CMN
+Domain Models;
+
+Mentor (Email,PhoneNumber)
+Mentee
+Session
+
+
+Data - (name,topic sessiondate)
+
+Behavior (scheduling, cancelling , rating)
+
+
+.....Entities , Value Object , Aggregates
+
+
+Entities --> always has an associated ID and also a lifecycle
+Value Object --> Normally defined only by its values ....
+Aggregates -- > Group of related entities treated as one....
+
+
+Session (prop1,....n)
+
+SessionStatus {
+public Int Id {get;set;}
+public string name {get;set;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
