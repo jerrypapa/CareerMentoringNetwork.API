@@ -401,8 +401,35 @@ public string name {get;set;}
 
 
 
+...................................................................20251014................................................................
 
 
+LISTS & Collections
+
+ Collections - Group of items that belong together.
+ A list - is  specific kind of collection that keeps the collections in a given order
+
+ var mentor = new Mentor("Jerry","Papa","ML",8); //mentor here is a single object
+
+ var mentors = new List<Mentor>();   // List<instance of what we want to create>() //mentors is a collection/a group of objects
+      mentors.Add(new Mentor("Jerry","Papa","ML",8));
+      mentors.Add (new Mentor("Stanley","Oduor","ML1",4));
+
+
+Types of collections in .Net
+ 
+1. List<T>                  Resizable, ordered collections
+
+2. ICollection<T>           Interface for a modifiable collections(add/remove)    common for EF 										  core navigation
+3.IEnumerable<T>            Simplest - read-only, ideal for loops             When you just want to read items
+
+4.HashSet<T>                More like lists but no duplicates             when you need uniqueness   
+
+5.Dictionary<TKey,TValue>     Key value Pairs (more of a lookup table)     when you need uniqueness
+
+
+
+    
 
 
 
